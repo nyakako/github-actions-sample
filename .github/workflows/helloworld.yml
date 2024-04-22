@@ -1,16 +1,19 @@
 name: Hello World
 
 on: 
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   say_hello:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Hello World!"
-  checkout_sample:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          ref: ${{ github.ref }}
+
+  # checkout_sample:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #       with:
+  #         ref: ${{ github.ref }}
